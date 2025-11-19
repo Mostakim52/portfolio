@@ -2,35 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mostakim Hossain – Portfolio</title>
+  <link rel="icon" href="favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Mostakim Hossain</h1>
-    <p>Full-Stack Developer · AI/ML Enthusiast · IoT Tinkerer</p>
-    <nav>
-      <a href="https://github.com/MostakimHossain" target="_blank">GitHub</a>
+  <!-- ---- theme toggle ---- -->
+  <button id="theme-toggle" aria-label="Toggle theme">🌓</button>
+
+  <!-- ---- hero ---- -->
+  <header class="fade-in">
+    <h1 class="slide-down">Mostakim Hossain</h1>
+    <p class="slide-up">Full-Stack Developer · AI/ML Enthusiast · IoT Tinkerer</p>
+    <nav class="slide-up">
+      <a href="https://github.com/Mostakim52" target="_blank">GitHub</a>
       <a href="https://linkedin.com/in/mostakimhossain" target="_blank">LinkedIn</a>
       <a href="mailto:mostakim.rubaiyat@gmail.com">Email</a>
     </nav>
   </header>
 
-  <section id="projects">
+  <!-- ---- projects ---- -->
+  <section id="projects" class="fade-in delay-1">
     <h2>Featured Projects</h2>
 
-    <div class="card">
-      <img src="assets/emotion.png" alt="Emotion Detection">
+    <div class="card lift">
+      <img src="assets/emotion.png" alt="Emotion Detection" />
       <h3>Bengali Emotion Detection</h3>
       <p>Hybrid CNN-Transformer & CNN-BiLSTM on native speech.</p>
-      <a class="btn" href="https://github.com/MostakimHossain/bengali-emotion-detection" target="_blank">Repo</a>
+      <a class="btn" href="https://github.com/Mostakim52/bengali-emotion-detection" target="_blank">Repo</a>
     </div>
 
-    <div class="card">
-      <img src="assets/khuje-nao.jpg" alt="Khuje Nao">
+    <div class="card lift">
+      <img src="assets/khuje-nao.jpg" alt="Khuje Nao" />
       <h3>Khuje Nao – Lost & Found</h3>
       <p>React-Native + Django REST app for NSU students.</p>
       <a class="btn" href="https://github.com/MostakimHossain/khuje-nao" target="_blank">Repo</a>
@@ -39,12 +44,26 @@
     <!-- duplicate .card blocks for other projects -->
   </section>
 
-  <footer>
+  <footer class="fade-in delay-2">
     &copy; <span id="year"></span> Mostakim Hossain
   </footer>
 
   <script>
+    // auto year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // theme toggle
+    const btn = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+
+    // apply saved or default
+    html.classList.toggle('dark', saved === 'dark');
+
+    btn.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
   </script>
 </body>
 </html>
