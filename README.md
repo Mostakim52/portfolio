@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/assets/logo.png" alt="MH." width="220" />
+  <img src="public/assets/logo.png" alt="MH." width="520" />
 </p>
 
 # Mostakim Rubaiyat — Portfolio
