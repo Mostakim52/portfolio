@@ -1,8 +1,8 @@
-# Mostakim Rubaiyat — Portfolio
-
 <p align="center">
-  <img src="/public/assets/logo.png" alt="MH." width="220" />
+  <img src="public/assets/logo.png" alt="MH." width="220" />
 </p>
+
+# Mostakim Rubaiyat — Portfolio
 
 A showcase portfolio built with modern frontend tooling — interactive 3D, crisp motion, and thoughtful UX.
 
@@ -20,15 +20,15 @@ Live site highlights the following:
 
 Hero / Landing
 
-![Hero screenshot](/assets/screenshot-hero.png)
+![Hero screenshot](public/assets/screenshot-hero.jpg)
 
 Projects gallery
 
-![Projects screenshot](/assets/screenshot-projects.png)
+![Projects screenshot](public/assets/screenshot-projects.jpg)
 
 Contact & CV
 
-![Contact screenshot](/assets/screenshot-contact.png)
+![Contact screenshot](public/assets/screenshot-contact.jpg)
 
 ---
 
@@ -55,7 +55,7 @@ Contact & CV
 ## Run locally
 
 ```bash
-git clone <your-repo-url>
+git clone <this-repo-url>
 cd portfolio
 npm install
 npm run dev
@@ -105,18 +105,3 @@ export default function Footer(){
 Recommended: Vercel — connect the repo and deploy with the default settings. If you add server-side email or storage, set required environment variables in the Vercel dashboard.
 
 ---
-
-## Want me to improve this README?
-
-I can:
-- Add polished screenshots (I can capture higher-fidelity images of the running site).
-- Add quick demo GIFs for motion highlights.
-- Add detailed component docs for maintainers.
-
----
-
-<h1 align="center">MH.</h1>
-
-<p align="center">
-  <img src="/assets/MH-logo.svg" alt="MH." width="220" />
-</p>
