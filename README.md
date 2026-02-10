@@ -1,7 +1,7 @@
 # Mostakim Rubaiyat — Portfolio
 
 <p align="center">
-  <img src="/assets/MH-logo.svg" alt="MH." width="220" />
+  <img src="/public/assets/logo.png" alt="MH." width="220" />
 </p>
 
 A showcase portfolio built with modern frontend tooling — interactive 3D, crisp motion, and thoughtful UX.
@@ -20,15 +20,15 @@ Live site highlights the following:
 
 Hero / Landing
 
-![Hero screenshot](/assets/screenshot-hero.svg)
+![Hero screenshot](/assets/screenshot-hero.png)
 
 Projects gallery
 
-![Projects screenshot](/assets/screenshot-projects.svg)
+![Projects screenshot](/assets/screenshot-projects.png)
 
 Contact & CV
 
-![Contact screenshot](/assets/screenshot-contact.svg)
+![Contact screenshot](/assets/screenshot-contact.png)
 
 ---
 
