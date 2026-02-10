@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="public/assets/logo.png" alt="MH." width="220" />
+</p>
+
 # Mostakim Rubaiyat — Portfolio
 
 Welcome to the source for my personal portfolio site. This project showcases interactive UI, refined motion, and modern frontend engineering.
@@ -97,9 +101,3 @@ If you'd like, I can:
 - Add a LinkedIn / GitHub CTA next to the CV download.
 
 ---
-
-<h1 align="center">MH.</h1>
-
-<p align="center">
-  <img src="public/assets/logo.png" alt="MH." width="220" />
-</p>
