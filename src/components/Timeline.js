@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const timelineData = [
     {
-        year: 'Jan 2025 – Present',
+        year: 'Jan 2025 – Feb 2026',
         title: 'Vice Chair (Technical), IEEE NSU WIE AG',
         company: 'North South University',
         description:
