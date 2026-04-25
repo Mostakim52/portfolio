@@ -2,6 +2,7 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Code2, Brain, Zap, Coffee } from 'lucide-react';
 import Timeline from '@/components/Timeline';
@@ -93,7 +94,15 @@ export default function About() {
     }, []);
 
     return (
-        <section id="about" className="py-28 px-6 relative" ref={sectionRef}>
+        <motion.section 
+            id="about" 
+            className="py-28 px-6 relative" 
+            ref={sectionRef}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, ease: 'easeOut', type: 'spring', stiffness: 100 }}
+            viewport={{ once: false, amount: 0.2 }}
+        >
             {/* Background glow */}
             <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[400px] h-[400px] bg-purple-600/[0.04] rounded-full blur-[100px] pointer-events-none" />
 
@@ -172,6 +181,6 @@ export default function About() {
                 </h3>
                 <Timeline />
             </div>
-        </section>
+        </motion.section>
     );
 }

@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion } from 'framer-motion';
 import AnimatedButton from '@/components/AnimatedButton';
 import Socials from '@/components/Socials';
 import FloatingShapes from '@/components/FloatingShapes';
@@ -139,9 +140,13 @@ export default function Hero() {
     }, []);
 
     return (
-        <section
+        <motion.section
             ref={sectionRef}
             className="min-h-screen flex flex-col md:flex-row justify-center items-center relative overflow-hidden px-6 gap-12 pt-20"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, ease: 'easeOut', type: 'spring', stiffness: 100 }}
+            viewport={{ once: false, amount: 0.3 }}
         >
             <FloatingShapes />
 
@@ -246,6 +251,6 @@ export default function Hero() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#050508]/70 via-transparent to-transparent" />
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 }

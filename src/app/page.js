@@ -21,6 +21,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const mainRef = useRef(null);
+  const backgroundVideoLayerRef = useRef(null);
   const [preloaderDone, setPreloaderDone] = useState(false);
 
   // Lenis smooth scroll
@@ -54,9 +55,51 @@ export default function Home() {
     }
   }, [preloaderDone]);
 
+  // Subtle background video motion across the scroll journey
+  useEffect(() => {
+    if (!backgroundVideoLayerRef.current || !mainRef.current) return;
+
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: mainRef.current,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 0.6,
+      },
+    });
+
+    timeline
+      .fromTo(
+        backgroundVideoLayerRef.current,
+        { opacity: 0.14, scale: 1.08, filter: 'saturate(0.95) blur(1px)' },
+        { opacity: 0.24, scale: 1, filter: 'saturate(1.2) blur(0px)', ease: 'none' }
+      )
+      .to(backgroundVideoLayerRef.current, {
+        opacity: 0.16,
+        scale: 1.05,
+        filter: 'saturate(0.9) blur(1px)',
+        ease: 'none',
+      });
+
+    return () => {
+      timeline.scrollTrigger?.kill();
+      timeline.kill();
+    };
+  }, []);
+
   return (
     <>
       <Preloader onComplete={() => setPreloaderDone(true)} />
+      <div ref={backgroundVideoLayerRef} className="site-background-video" aria-hidden="true">
+        <video
+          src="/assets/background_video.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        />
+      </div>
       <CustomCursor />
       <ParticleField />
       <ScrollProgress />

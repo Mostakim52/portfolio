@@ -3,6 +3,7 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion } from 'framer-motion';
 import { BookOpen, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 
@@ -60,7 +61,15 @@ export default function Highlights() {
   }, []);
 
   return (
-    <section id="highlights" className="py-24 px-6 relative" ref={sectionRef}>
+    <motion.section 
+      id="highlights" 
+      className="py-24 px-6 relative" 
+      ref={sectionRef}
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, ease: 'easeOut', type: 'spring', stiffness: 100 }}
+      viewport={{ once: false, amount: 0.2 }}
+    >
       <div className="absolute inset-x-0 -top-10 h-40 bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
@@ -132,7 +141,7 @@ export default function Highlights() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

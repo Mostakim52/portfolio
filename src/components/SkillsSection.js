@@ -2,6 +2,7 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion } from 'framer-motion';
 import TextScramble from '@/components/TextScramble';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -114,7 +115,15 @@ export default function SkillsSection() {
     }, []);
 
     return (
-        <section id="skills" className="py-28 px-6 relative" ref={sectionRef}>
+        <motion.section 
+            id="skills" 
+            className="py-28 px-6 relative" 
+            ref={sectionRef}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, ease: 'easeOut', type: 'spring', stiffness: 100 }}
+            viewport={{ once: false, amount: 0.2 }}
+        >
             {/* Background */}
             <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-pink-600/[0.03] rounded-full blur-[120px] pointer-events-none" />
 
@@ -177,6 +186,6 @@ export default function SkillsSection() {
                     ))}
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 }

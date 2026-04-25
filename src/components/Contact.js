@@ -2,6 +2,7 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Download } from 'lucide-react';
 import TextScramble from '@/components/TextScramble';
 import AnimatedButton from '@/components/AnimatedButton';
@@ -86,7 +87,15 @@ export default function Contact() {
     }, []);
 
     return (
-        <section id="contact" className="py-28 px-6 relative" ref={sectionRef}>
+        <motion.section 
+            id="contact" 
+            className="py-28 px-6 relative" 
+            ref={sectionRef}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, ease: 'easeOut', type: 'spring', stiffness: 100 }}
+            viewport={{ once: false, amount: 0.2 }}
+        >
             {/* Background */}
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-purple-600/[0.03] rounded-full blur-[120px] pointer-events-none" />
 
@@ -159,6 +168,6 @@ export default function Contact() {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 }
