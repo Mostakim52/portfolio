@@ -181,11 +181,11 @@ export default function Hero() {
                 </div>
 
                 <h1
-                    className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight leading-[1.1]"
+                    className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight leading-[1.1]"
                     ref={nameRef}
                     data-cursor="text"
                 >
-                    <span className="gradient-text block md:inline">Mostakim</span>{' '}
+                    <span className="gradient-text block md:inline font-display-serif">Mostakim</span>{' '}
                     <span className="text-white block md:inline">Hossain</span>
                 </h1>
 
@@ -196,7 +196,7 @@ export default function Hero() {
                     <span className="text-cyan-400 font-mono">&lt;</span>
                     <span className="text-indigo-400">Full-Stack</span>
                     <span className="text-cyan-400 font-mono"> /&gt;</span> Developer crafting
-                    <span className="text-purple-400 neon-text"> immersive</span> digital experiences with
+                    <span className="text-amber-300 neon-text"> immersive</span> digital experiences with
                     AI & Modern Web Tech.
                 </p>
 

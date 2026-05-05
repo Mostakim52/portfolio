@@ -103,6 +103,12 @@ export default function Home() {
       <CustomCursor />
       <ParticleField />
       <ScrollProgress />
+      <div className="master-bg-grid" aria-hidden="true">
+        <div className="bg-grid">
+          <div className="line-bg" />
+          <div className="line-bg" />
+        </div>
+      </div>
 
       <main ref={mainRef} className="relative z-10 noise-overlay scan-line">
         {/* Top halo / 3D-like gradient to fill empty space at the very top */}
@@ -135,6 +141,16 @@ export default function Home() {
         <div className="section-divider" />
 
         <Contact />
+        <div className="wrap-progressive-blur" aria-hidden="true">
+          <div className="progressive-blur">
+            <div className="progressive-blur-panel" style={{ '--i': 1 }} />
+            <div className="progressive-blur-panel" style={{ '--i': 2 }} />
+            <div className="progressive-blur-panel" style={{ '--i': 3 }} />
+            <div className="progressive-blur-panel" style={{ '--i': 4 }} />
+            <div className="progressive-blur-panel" style={{ '--i': 5 }} />
+            <div className="progressive-blur-panel" style={{ '--i': 6 }} />
+          </div>
+        </div>
         <Footer />
       </main>
     </>

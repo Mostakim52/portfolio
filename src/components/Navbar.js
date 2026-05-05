@@ -60,7 +60,7 @@ export default function Navbar() {
         <nav
             ref={navRef}
             className={`fixed w-full z-50 transition-all duration-500 ${scrolled
-                    ? 'bg-[#050508]/70 backdrop-blur-xl border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.3)]'
+                    ? 'bg-[#09090c]/70 backdrop-blur-xl border-b border-white/[0.08] shadow-[0_8px_40px_rgba(0,0,0,0.35)]'
                     : 'bg-transparent'
                 }`}
         >
@@ -68,7 +68,7 @@ export default function Navbar() {
                 <Link
                     href="/"
                     ref={logoRef}
-                    className="text-2xl font-bold gradient-text-static hover:opacity-80 transition-opacity"
+                    className="text-2xl font-bold gradient-text-static hover:opacity-90 transition-opacity"
                     data-cursor="link"
                     data-magnetic="0.2"
                 >
@@ -82,12 +82,12 @@ export default function Navbar() {
                             key={link.name}
                             href={link.href}
                             ref={(el) => (linksRef.current[i] = el)}
-                            className="text-sm font-medium tracking-wide uppercase text-gray-300 relative group"
+                            className="text-sm font-medium tracking-[0.14em] uppercase text-gray-300/90 relative group"
                             data-cursor="link"
                             data-magnetic="0.25"
                         >
                             {link.name}
-                            <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-300 group-hover:w-full" />
+                            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gradient-to-r from-white/90 via-amber-300 to-cyan-300 transition-all duration-300 group-hover:w-full" />
                         </Link>
                     ))}
                 </div>
@@ -103,14 +103,14 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="md:hidden bg-[#050508]/95 backdrop-blur-xl border-b border-white/[0.06]">
+                <div className="md:hidden bg-[#09090c]/95 backdrop-blur-xl border-b border-white/[0.08]">
                     <div className="flex flex-col p-6 gap-4">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 href={link.href}
                                 onClick={() => setIsOpen(false)}
-                                className="text-lg text-gray-300 hover:text-purple-400 transition-colors py-2 border-b border-white/5"
+                                className="text-lg text-gray-300 hover:text-amber-300 transition-colors py-2 border-b border-white/5"
                             >
                                 {link.name}
                             </Link>

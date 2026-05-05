@@ -74,7 +74,7 @@ export default function Marquee({ text = 'CREATIVE DEVELOPER', repeat = 4, direc
                         {items.map((i) => (
                             <span key={`${set}-${i}`} className="flex items-center gap-8">
                                 <span
-                                    className="text-6xl md:text-8xl font-bold tracking-wider uppercase select-none"
+                                    className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold tracking-wider uppercase select-none"
                                     style={{
                                         WebkitTextStroke: '1.5px rgba(255,255,255,0.08)',
                                         color: 'transparent',

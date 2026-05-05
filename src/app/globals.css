@@ -3,23 +3,24 @@
 @tailwind utilities;
 
 :root {
-  --background: #050508;
-  --foreground: #e8e8ef;
-  --primary: #6366f1;
-  --primary-glow: rgba(99, 102, 241, 0.4);
-  --secondary: #ec4899;
-  --secondary-glow: rgba(236, 72, 153, 0.4);
-  --accent: #8b5cf6;
-  --accent-glow: rgba(139, 92, 246, 0.4);
-  --cyan: #22d3ee;
-  --cyan-glow: rgba(34, 211, 238, 0.3);
+  --background: #09090c;
+  --foreground: #f1f1f4;
+  --primary: #3f5efb;
+  --primary-glow: rgba(63, 94, 251, 0.35);
+  --secondary: #f4b544;
+  --secondary-glow: rgba(244, 181, 68, 0.35);
+  --accent: #0ea5a8;
+  --accent-glow: rgba(14, 165, 168, 0.35);
+  --cyan: #46c7c7;
+  --cyan-glow: rgba(70, 199, 199, 0.25);
+  --line-color: rgba(255, 255, 255, 0.08);
   --glass: rgba(255, 255, 255, 0.03);
   --glass-strong: rgba(255, 255, 255, 0.06);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-border-hover: rgba(255, 255, 255, 0.15);
-  --neon-purple: #a855f7;
-  --neon-blue: #3b82f6;
-  --neon-pink: #ec4899;
+  --neon-purple: #f4b544;
+  --neon-blue: #3f5efb;
+  --neon-pink: #0ea5a8;
 }
 
 * {
@@ -39,10 +40,17 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+}
+
+h1,
+h2,
+.font-display-serif {
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: 0.005em;
 }
 
 /* ── Background Video Layer ────────────────────────────── */
@@ -53,6 +61,13 @@ body {
   pointer-events: none;
   overflow: hidden;
   transform-origin: center;
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .site-background-video {
+    display: block;
+  }
 }
 
 .site-background-video video {
@@ -68,9 +83,40 @@ body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 18% 18%, rgba(34, 211, 238, 0.2), transparent 38%),
-    radial-gradient(circle at 82% 28%, rgba(139, 92, 246, 0.22), transparent 40%),
-    linear-gradient(180deg, rgba(5, 5, 8, 0.42) 0%, rgba(5, 5, 8, 0.76) 100%);
+    radial-gradient(circle at 18% 18%, rgba(70, 199, 199, 0.18), transparent 40%),
+    radial-gradient(circle at 82% 28%, rgba(244, 181, 68, 0.14), transparent 42%),
+    linear-gradient(180deg, rgba(9, 9, 12, 0.44) 0%, rgba(9, 9, 12, 0.8) 100%);
+}
+
+/* ── Atmospheric Grid ────────────────────────────── */
+.master-bg-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.45;
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .master-bg-grid {
+    display: block;
+  }
+}
+
+.bg-grid {
+  width: min(1200px, calc(100vw - 2rem));
+  height: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: min(45vw, 560px);
+}
+
+.line-bg {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 0%, var(--line-color) 12%, var(--line-color) 88%, transparent 100%);
 }
 
 /* ── Custom Scrollbar ────────────────────────────── */
@@ -99,7 +145,7 @@ body {
 
 /* ── Gradient Text ────────────────────────────── */
 .gradient-text {
-  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--cyan));
+  background: linear-gradient(135deg, var(--foreground), var(--secondary), var(--accent));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -108,7 +154,7 @@ body {
 }
 
 .gradient-text-static {
-  background: linear-gradient(135deg, var(--primary), var(--accent), var(--secondary));
+  background: linear-gradient(135deg, var(--foreground), var(--secondary));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -139,7 +185,7 @@ body {
 .glass-card:hover {
   background: var(--glass-strong);
   border-color: var(--glass-border-hover);
-  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.1),
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
@@ -284,7 +330,7 @@ body {
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--cyan), transparent);
   animation: scan-line 8s linear infinite;
-  opacity: 0.1;
+  opacity: 0.07;
   pointer-events: none;
   z-index: 9998;
 }
@@ -292,9 +338,72 @@ body {
 /* ── Section Divider ────────────────────────────── */
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--glass-border-hover), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   margin: 0 auto;
-  max-width: 80%;
+  max-width: min(1200px, calc(100vw - 2rem));
+  position: relative;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: var(--background);
+  transform: translateY(-50%);
+}
+
+.section-divider::before {
+  left: 2%;
+}
+
+.section-divider::after {
+  right: 2%;
+}
+
+@media (min-width: 768px) {
+  .section-divider::before {
+    left: 8%;
+  }
+  
+  .section-divider::after {
+    right: 8%;
+  }
+}
+
+/* ── Progressive blur footer cap ────────────────────────────── */
+.wrap-progressive-blur {
+  position: sticky;
+  bottom: 0;
+  height: 32px;
+  pointer-events: none;
+  z-index: 12;
+}
+
+@media (min-width: 768px) {
+  .wrap-progressive-blur {
+    height: 64px;
+  }
+}
+
+.progressive-blur {
+  --blur: 2.5rem;
+  --ratio: 1.6;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.progressive-blur-panel {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(calc(var(--blur) * var(--i) / 10));
+  -webkit-backdrop-filter: blur(calc(var(--blur) * var(--i) / 10));
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, calc(var(--i) * 0.1)), transparent);
 }
 
 /* ── Skill Bar Animation ────────────────────────── */

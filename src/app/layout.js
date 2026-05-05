@@ -1,7 +1,8 @@
 import './globals.css';
-import { Outfit } from 'next/font/google';
+import { DM_Sans, Space_Grotesk } from 'next/font/google';
 
-const outfit = Outfit({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700', '800'] });
+const dmSans = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'], variable: '--font-dm-sans' });
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-display' });
 
 export const metadata = {
   title: 'Mostakim Hossain | Portfolio',
@@ -12,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${outfit.className} antialiased selection:bg-purple-500/80 selection:text-white`}>
+      <body className={`${dmSans.variable} ${spaceGrotesk.variable} antialiased selection:bg-amber-400/80 selection:text-black`}>
         {children}
       </body>
     </html>

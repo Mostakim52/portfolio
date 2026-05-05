@@ -16,6 +16,7 @@
 # next.js
 /.next/
 /out/
+/example_webflow_website
 
 # production
 /build

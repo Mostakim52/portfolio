@@ -33,9 +33,10 @@ export default function Footer() {
 
             <footer
                 ref={footerRef}
-                className="py-16 text-center text-gray-500 text-sm relative overflow-hidden"
+                className="py-16 text-center text-gray-400 text-sm relative overflow-hidden"
             >
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050508] to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#09090c] to-transparent pointer-events-none" />
+                <div className="absolute inset-0 max-w-6xl mx-auto rounded-3xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-xl pointer-events-none" />
 
                 <div className="relative z-10 flex flex-col items-center gap-8">
                     {/* Logo */}
@@ -44,10 +45,10 @@ export default function Footer() {
                     <Socials />
 
                     <div className="space-y-2">
-                        <p className="text-gray-400">
-                            Designed & built with ❤️ by <span className="text-purple-400">Mostakim Hossain</span>
+                        <p className="text-gray-300">
+                            Designed and built by <span className="text-amber-300 font-display-serif">Mostakim Hossain</span>
                         </p>
-                        <p className="text-gray-600">
+                        <p className="text-gray-500">
                             &copy; {new Date().getFullYear()} &middot; Built with Next.js, GSAP & Anime.js
                         </p>
                     </div>
